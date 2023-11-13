@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Joran Schoorlemmer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+      <a href="#home" class="w3-bar-item w3-button"><b>Joran</b> Schoorlemmer</a>
+      <!-- Float links to the right. Hide them on small screens -->
+      <div class="w3-right w3-hide-small">
+      <a href="./mainsite.htm" class="w3-bar-item w3-button">Projects</a>
+      <a href="./CV.htm" class="w3-bar-item w3-button">CV</a>
+      <a href="./randomstuff.htm" class="w3-bar-item w3-button">Test</a>
+      </div>
+  </div>
+</div>
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-quarter" w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br><br>
+    
+        <div class="w3-container">
+          <img src="images/profile.jpg" style="width:45%;" class="w3-round"><br><br>
+          <h4><b>Joran Schoorlemmer</b></h4>
+          <p>This website contains information on my research projects</p>
+        </div>
+        <div class="w3-panel w3-large">
+          <i class="fa fa-envelope w3-hover-opacity"></i>
+          <i class="fa fa-linkedin w3-hover-opacity"></i>
+        </div>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-threequarter w3-margin-top"><br>
+      <!-- Header -->
+  <header id="Projects">
+    <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    <h1><b>My Projects</b></h1>
+    <div class="w3-section w3-bottombar w3-padding-16">
+      <span class="w3-margin-right">Filter:</span> 
+      <button class="w3-button w3-black">ALL</button>
+      <button class="w3-button w3-white"><i class="fa fa-diamond w3-margin-right"></i>Design</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Photos</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-map-pin w3-margin-right"></i>Art</button>
+    </div>
+    </div>
+  </header>
+  
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding">
+    <button class="w3-third w3-container w3-margin-bottom" id="internshipBtn" onclick="openModal('internshipModal','internshipclose')">
+      <img src="images/microscope.jpg" alt="HEK293" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Internship Boehringer Ingelheim</b></p>
+        <p>Characterizing HEK293 metabolism for varying growth media using metabolic modelling.</p>
+        <p>Keywords: Python, Metabolic Flux Analysis, Metabolomics</p>
+      </div>
+    </button>
+    <button class="w3-third w3-container w3-margin-bottom" id="mscthesisBtn" onclick="openModal('mscthesisModal','mscthesisclose')">
+      <img src="images/phage.png" alt="phage" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>MSc Thesis</b></p>
+        <p>Phages in different thermal stages
+          A machine learning study on thermal stability and diversity of bacteriophage protein
+          structures using AlphaFold.</p>
+        <p>Keywords: Phages, Proteomics, Machine Learning, AlphaFold, Python, R</p>
+      </div>
+    </button>
+    <button class="w3-third w3-container w3-margin-bottom" id="bscthesisBtn" onclick="openModal('bscthesisModal','bscthesisclose')">
+      <img src="images/C3M.png" alt="C3M" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>BSc Thesis</b></p>
+        <p>The Effect of the Stoichiometry on the 3D-structure of Complex Coacervate Core Micelles (C3Ms).</p>
+        <p>Keywords: Molecular Dynamics, C3Ms, Atomistic Simulations, HOOMD-blue, Python </p>
+      </div>
+    </button>
+  </div>
+  
+  <!-- Second Photo Grid-->
+  <div class="w3-row-padding">
+    <button class="w3-third w3-container w3-margin-bottom" id="actBtn" onclick="openModal('actModal','actclose')">
+      <img src="images/ACT.png" alt="ACT" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Academic Consultancy Training</b></p>
+        <p>Individualized training, nutrition, and recovery programs for elite athletes based on biomarker testing trough lab-on-a-chip technology.</p>
+        <p>Keywords: Metabolomics, Consultancy, Nutrition</p>
+      </div>
+    </button>
+    <button class="w3-third w3-container w3-margin-bottom" id="advbifBtn" onclick="openModal('advbifModal','advbifclose')">
+      <img src="images/arabidopsis.jpg" alt="a. thaliana" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Advanced Bioinformatics</b></p>
+        <p>Effect of bacterial inoculation on gene expression in <i>Arabidopsis Thaliana.</i></p>
+        <p>Keywords: Genomics, Transcriptomics, Literature, Snakemake data pipeline</p>
+      </div>
+    </button>
+    <button class="w3-third w3-container w3-margin-bottom" id="advsmBtn" onclick="openModal('advsmModal','advsmclose')">
+      <img src="images/softmatter.jpg.png" alt="bonds" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Advanced Soft Matter</b></p>
+        <p>Bonds and Breakups, a stressful model. Modeling Cell Adhesion to Extra-cellular Matrix with Focal Adhesion Complexes</p>
+        <p>Keywords: Molecular Dynamics, extracellular matrix, LAMMPS, Python</p>
+      </div>
+    </button>
+  </div>
+
+  <!-- Third Photo Grid-->
+  <div class="w3-row-padding">
+    <button class="w3-third w3-container w3-margin-bottom" id="cmbmBtn" onclick="openModal('cmbmModal','cmbmclose')">
+      <img src="images/icebinding.png" alt="icebinding proteins" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Computer Modelling of Biomolecules</b></p>
+        <p>Simulating ice nucleating proteins using RoseTTAFold</p>
+        <p>Keywords: Proteomics, Molecular Dynamics, roseTTAFold, Python</p>
+      </div>
+    </button>
+    <button class="w3-third w3-container w3-margin-bottom" id="cyclingBtn" onclick="openModal('cyclingModal','cyclingclose')">
+      <img src="images/cycling.jpg" alt="cycling" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Perfect Fantasy Cycling team</b></p>
+        <p>Analysing cycling results to come up with the perfect fantasy cyling team in retrospective.</p>
+        <p>Keywords: Fun, Data management, HTML</p>
+      </div>
+    </button>
+    <button class="w3-third w3-container w3-margin-bottom" id="dmBtn" onclick="openModal('dmModal','dmclose')">
+      <img src="images/mushrooms.jpg" alt="Urbanfunghi" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Data Management</b></p>
+        <p>Design and implementation of a SQL database for startup Urban Funghi</p>
+        <p>Keywords: Data management, SQL, MS Access, mySQL</p>
+      </div>
+    </button>
+  </div>
+  <!-- End Right Column -->
+  </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+<footer class="w3-container w3-light-grey w3-center w3-margin-top">
+  <p>Find me on LinkedIn or email.</p>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <i class="fa fa-envelope w3-hover-opacity"></i>
+</footer>
+<!-- The Modal -->
+<div id="internshipModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="internshipclose"class="close">&times;</span>
+    <h4>Abstract</h4>
+    <p>Biopharmaceuticals like antibodies and viral vectors are extremely potent medicals due to their
+      high specificity and efficacy. While antibodies are already produced on a large scale, the
+      production of novel viral therapeutics is more complicated. These viral vectors and vaccines
+      require multiple post translational modifications which are not feasible in the current internal
+      production platforms in the human pharma business unit of Boehringer Ingelheim. For these
+      purposes, HEK293 cells will build the basis for a suitable platform. This cell line from human
+      origin allows for production of these medicines. To create this platform, a thorough
+      understanding of the process and cell metabolism is required. In this project, a model is created
+      to describe and predict the behavior of HEK293 cells using Metabolic Flux Analyses. This model
+      can also be used for optimizing media formulations, by identifying bottlenecks in the
+      metabolism of the cells, thereby majorly increasing development speed and success. The model
+      is tested and verified in a Design of Experiment setup using the ambr®15 bioreactor. Investigated
+      factors are the seeding cell density, glucose limit, glutamine source, glutamine source
+      concentration and tyrosine concentration of the growth medium. The seeding cell density was
+      found to be highly important for controlling and shifting the metabolism of the cells into a
+      stationary phase. The tyrosine and glutamine source concentrations were also relevant for more
+      specific reactions as alanine transaminase. This model provides a basis for more in depth
+      research on the differences between growth phases and eventually implementing virus
+      production.</p>
+  </div>
+</div>
+
+<div id="mscthesisModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="mscthesisclose"class="close">&times;</span>
+    <h4>Abstract</h4>
+    <p>Biopharmaceuticals like antibodies and viral vectors are extremely potent medicals due to their
+      high specificity and efficacy. While antibodies are already produced on a large scale, the
+      production of novel viral therapeutics is more complicated. These viral vectors and vaccines
+      require multiple post translational modifications which are not feasible in the current internal
+      production platforms in the human pharma business unit of Boehringer Ingelheim. For these
+      purposes, HEK293 cells will build the basis for a suitable platform. This cell line from human
+      origin allows for production of these medicines. To create this platform, a thorough
+      understanding of the process and cell metabolism is required. In this project, a model is created
+      to describe and predict the behavior of HEK293 cells using Metabolic Flux Analyses. This model
+      can also be used for optimizing media formulations, by identifying bottlenecks in the
+      metabolism of the cells, thereby majorly increasing development speed and success. The model
+      is tested and verified in a Design of Experiment setup using the ambr®15 bioreactor. Investigated
+      factors are the seeding cell density, glucose limit, glutamine source, glutamine source
+      concentration and tyrosine concentration of the growth medium. The seeding cell density was
+      found to be highly important for controlling and shifting the metabolism of the cells into a
+      stationary phase. The tyrosine and glutamine source concentrations were also relevant for more
+      specific reactions as alanine transaminase. This model provides a basis for more in depth
+      research on the differences between growth phases and eventually implementing virus
+      production.</p>
+  </div>
+</div>
+
+<div id="bscthesisModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="bscthesisclose"class="close">&times;</span>
+    <h4>Abstract</h4>
+    <p>Biopharmaceuticals like antibodies and viral vectors are extremely potent medicals due to their
+      high specificity and efficacy. While antibodies are already produced on a large scale, the
+      production of novel viral therapeutics is more complicated. These viral vectors and vaccines
+      require multiple post translational modifications which are not feasible in the current internal
+      production platforms in the human pharma business unit of Boehringer Ingelheim. For these
+      purposes, HEK293 cells will build the basis for a suitable platform. This cell line from human
+      origin allows for production of these medicines. To create this platform, a thorough
+      understanding of the process and cell metabolism is required. In this project, a model is created
+      to describe and predict the behavior of HEK293 cells using Metabolic Flux Analyses. This model
+      can also be used for optimizing media formulations, by identifying bottlenecks in the
+      metabolism of the cells, thereby majorly increasing development speed and success. The model
+      is tested and verified in a Design of Experiment setup using the ambr®15 bioreactor. Investigated
+      factors are the seeding cell density, glucose limit, glutamine source, glutamine source
+      concentration and tyrosine concentration of the growth medium. The seeding cell density was
+      found to be highly important for controlling and shifting the metabolism of the cells into a
+      stationary phase. The tyrosine and glutamine source concentrations were also relevant for more
+      specific reactions as alanine transaminase. This model provides a basis for more in depth
+      research on the differences between growth phases and eventually implementing virus
+      production.</p>
+  </div>
+</div>
+<div id="actModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="actclose"class="close">&times;</span>
+    <h4>Abstract</h4>
+    <p>Biopharmaceuticals like antibodies and viral vectors are extremely potent medicals due to their
+      high specificity and efficacy. While antibodies are already produced on a large scale, the
+      production of novel viral therapeutics is more complicated. These viral vectors and vaccines
+      require multiple post translational modifications which are not feasible in the current internal
+      production platforms in the human pharma business unit of Boehringer Ingelheim. For these
+      purposes, HEK293 cells will build the basis for a suitable platform. This cell line from human
+      origin allows for production of these medicines. To create this platform, a thorough
+      understanding of the process and cell metabolism is required. In this project, a model is created
+      to describe and predict the behavior of HEK293 cells using Metabolic Flux Analyses. This model
+      can also be used for optimizing media formulations, by identifying bottlenecks in the
+      metabolism of the cells, thereby majorly increasing development speed and success. The model
+      is tested and verified in a Design of Experiment setup using the ambr®15 bioreactor. Investigated
+      factors are the seeding cell density, glucose limit, glutamine source, glutamine source
+      concentration and tyrosine concentration of the growth medium. The seeding cell density was
+      found to be highly important for controlling and shifting the metabolism of the cells into a
+      stationary phase. The tyrosine and glutamine source concentrations were also relevant for more
+      specific reactions as alanine transaminase. This model provides a basis for more in depth
+      research on the differences between growth phases and eventually implementing virus
+      production.</p>
+  </div>
+</div>
+
+<div id="advbifModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="advbifclose"class="close">&times;</span>
+    <h4>Abstract</h4>
+    <p>Biopharmaceuticals like antibodies and viral vectors are extremely potent medicals due to their
+      high specificity and efficacy. While antibodies are already produced on a large scale, the
+      production of novel viral therapeutics is more complicated. These viral vectors and vaccines
+      require multiple post translational modifications which are not feasible in the current internal
+      production platforms in the human pharma business unit of Boehringer Ingelheim. For these
+      purposes, HEK293 cells will build the basis for a suitable platform. This cell line from human
+      origin allows for production of these medicines. To create this platform, a thorough
+      understanding of the process and cell metabolism is required. In this project, a model is created
+      to describe and predict the behavior of HEK293 cells using Metabolic Flux Analyses. This model
+      can also be used for optimizing media formulations, by identifying bottlenecks in the
+      metabolism of the cells, thereby majorly increasing development speed and success. The model
+      is tested and verified in a Design of Experiment setup using the ambr®15 bioreactor. Investigated
+      factors are the seeding cell density, glucose limit, glutamine source, glutamine source
+      concentration and tyrosine concentration of the growth medium. The seeding cell density was
+      found to be highly important for controlling and shifting the metabolism of the cells into a
+      stationary phase. The tyrosine and glutamine source concentrations were also relevant for more
+      specific reactions as alanine transaminase. This model provides a basis for more in depth
+      research on the differences between growth phases and eventually implementing virus
+      production.</p>
+  </div>
+</div>
+
+<div id="advsmModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="advsmclose"class="close">&times;</span>
+    <h4>Abstract</h4>
+    <p>Biopharmaceuticals like antibodies and viral vectors are extremely potent medicals due to their
+      high specificity and efficacy. While antibodies are already produced on a large scale, the
+      production of novel viral therapeutics is more complicated. These viral vectors and vaccines
+      require multiple post translational modifications which are not feasible in the current internal
+      production platforms in the human pharma business unit of Boehringer Ingelheim. For these
+      purposes, HEK293 cells will build the basis for a suitable platform. This cell line from human
+      origin allows for production of these medicines. To create this platform, a thorough
+      understanding of the process and cell metabolism is required. In this project, a model is created
+      to describe and predict the behavior of HEK293 cells using Metabolic Flux Analyses. This model
+      can also be used for optimizing media formulations, by identifying bottlenecks in the
+      metabolism of the cells, thereby majorly increasing development speed and success. The model
+      is tested and verified in a Design of Experiment setup using the ambr®15 bioreactor. Investigated
+      factors are the seeding cell density, glucose limit, glutamine source, glutamine source
+      concentration and tyrosine concentration of the growth medium. The seeding cell density was
+      found to be highly important for controlling and shifting the metabolism of the cells into a
+      stationary phase. The tyrosine and glutamine source concentrations were also relevant for more
+      specific reactions as alanine transaminase. This model provides a basis for more in depth
+      research on the differences between growth phases and eventually implementing virus
+      production.</p>
+  </div>
+</div>
+<div id="cmbmModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="cmbmclose"class="close">&times;</span>
+    <h4>Abstract</h4>
+    <p>Biopharmaceuticals like antibodies and viral vectors are extremely potent medicals due to their
+      high specificity and efficacy. While antibodies are already produced on a large scale, the
+      production of novel viral therapeutics is more complicated. These viral vectors and vaccines
+      require multiple post translational modifications which are not feasible in the current internal
+      production platforms in the human pharma business unit of Boehringer Ingelheim. For these
+      purposes, HEK293 cells will build the basis for a suitable platform. This cell line from human
+      origin allows for production of these medicines. To create this platform, a thorough
+      understanding of the process and cell metabolism is required. In this project, a model is created
+      to describe and predict the behavior of HEK293 cells using Metabolic Flux Analyses. This model
+      can also be used for optimizing media formulations, by identifying bottlenecks in the
+      metabolism of the cells, thereby majorly increasing development speed and success. The model
+      is tested and verified in a Design of Experiment setup using the ambr®15 bioreactor. Investigated
+      factors are the seeding cell density, glucose limit, glutamine source, glutamine source
+      concentration and tyrosine concentration of the growth medium. The seeding cell density was
+      found to be highly important for controlling and shifting the metabolism of the cells into a
+      stationary phase. The tyrosine and glutamine source concentrations were also relevant for more
+      specific reactions as alanine transaminase. This model provides a basis for more in depth
+      research on the differences between growth phases and eventually implementing virus
+      production.</p>
+  </div>
+</div>
+
+<div id="cyclingModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="cyclingclose"class="close">&times;</span>
+    <h4>Abstract</h4>
+    <p>Biopharmaceuticals like antibodies and viral vectors are extremely potent medicals due to their
+      high specificity and efficacy. While antibodies are already produced on a large scale, the
+      production of novel viral therapeutics is more complicated. These viral vectors and vaccines
+      require multiple post translational modifications which are not feasible in the current internal
+      production platforms in the human pharma business unit of Boehringer Ingelheim. For these
+      purposes, HEK293 cells will build the basis for a suitable platform. This cell line from human
+      origin allows for production of these medicines. To create this platform, a thorough
+      understanding of the process and cell metabolism is required. In this project, a model is created
+      to describe and predict the behavior of HEK293 cells using Metabolic Flux Analyses. This model
+      can also be used for optimizing media formulations, by identifying bottlenecks in the
+      metabolism of the cells, thereby majorly increasing development speed and success. The model
+      is tested and verified in a Design of Experiment setup using the ambr®15 bioreactor. Investigated
+      factors are the seeding cell density, glucose limit, glutamine source, glutamine source
+      concentration and tyrosine concentration of the growth medium. The seeding cell density was
+      found to be highly important for controlling and shifting the metabolism of the cells into a
+      stationary phase. The tyrosine and glutamine source concentrations were also relevant for more
+      specific reactions as alanine transaminase. This model provides a basis for more in depth
+      research on the differences between growth phases and eventually implementing virus
+      production.</p>
+  </div>
+</div>
+
+<div id="dmModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="dmclose"class="close">&times;</span>
+    <h4>Abstract</h4>
+    <p>Biopharmaceuticals like antibodies and viral vectors are extremely potent medicals due to their
+      high specificity and efficacy. While antibodies are already produced on a large scale, the
+      production of novel viral therapeutics is more complicated. These viral vectors and vaccines
+      require multiple post translational modifications which are not feasible in the current internal
+      production platforms in the human pharma business unit of Boehringer Ingelheim. For these
+      purposes, HEK293 cells will build the basis for a suitable platform. This cell line from human
+      origin allows for production of these medicines. To create this platform, a thorough
+      understanding of the process and cell metabolism is required. In this project, a model is created
+      to describe and predict the behavior of HEK293 cells using Metabolic Flux Analyses. This model
+      can also be used for optimizing media formulations, by identifying bottlenecks in the
+      metabolism of the cells, thereby majorly increasing development speed and success. The model
+      is tested and verified in a Design of Experiment setup using the ambr®15 bioreactor. Investigated
+      factors are the seeding cell density, glucose limit, glutamine source, glutamine source
+      concentration and tyrosine concentration of the growth medium. The seeding cell density was
+      found to be highly important for controlling and shifting the metabolism of the cells into a
+      stationary phase. The tyrosine and glutamine source concentrations were also relevant for more
+      specific reactions as alanine transaminase. This model provides a basis for more in depth
+      research on the differences between growth phases and eventually implementing virus
+      production.</p>
+  </div>
+</div>
+
+<script>
+// Script to open and close sidebar
+function openModal(modalId,close) {
+    var modal = document.getElementById(modalId);
+    var span = document.getElementById(close);
+    modal.style.display = 'block';
+
+    // Add event listener to close modal when clicking outside of it
+    window.addEventListener('click', function(event) {
+      if (event.target == modal) {
+        closeModal(modalId);
+      }
+    });
+    // Add event listener to close modal when clicking outside of it
+    span.addEventListener('click', function(event) {
+        closeModal(modalId);
+    });
+  }
+// Function to close a modal by ID
+function closeModal(modalId) {
+  var modal = document.getElementById(modalId);
+  modal.style.display = 'none';
+}
+</script>
+
+</body>
+</html>
